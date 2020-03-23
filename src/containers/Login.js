@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import "./Login.css";
 import {FormControl, FormGroup, FormLabel} from "react-bootstrap";
+import MainPage from "./MainPage";
+import {NavLink} from "react-router-dom";
 
-export default function Login() {
+export default function Login () {
 
 
     const [email, setEmail] = useState("");
@@ -35,11 +37,16 @@ export default function Login() {
                         onChange={e => setPassword(e.target.value)}>
                     </FormControl>
                 </FormGroup>
-                <button
-
+                <div><button
                     type="submit" onClick={checkStatus} disabled={!(email && password)}>Login
                 </button>
+                </div>
+                <div>
+                    <NavLink to="/mainPage">
+                        <button onClick={MainPage}>Main Page</button>
+                    </NavLink></div>
             </form>
+
         </div>
     )
 }
