@@ -4,7 +4,7 @@ import {FormControl, FormGroup, FormLabel} from "react-bootstrap";
 import MainPage from "./MainPage";
 import {NavLink} from "react-router-dom";
 
-export default function Login () {
+export default function Login() {
 
 
     const [email, setEmail] = useState("");
@@ -37,16 +37,17 @@ export default function Login () {
                         onChange={e => setPassword(e.target.value)}>
                     </FormControl>
                 </FormGroup>
-                <div><button
-                    type="submit" onClick={checkStatus} disabled={!(email && password)}>Login
-                </button>
-                </div>
                 <div>
                     <NavLink to="/mainPage">
-                        <button onClick={MainPage}>Main Page</button>
-                    </NavLink></div>
-            </form>
-
+                        <button
+                            type="submit" onClick={checkStatus} disabled={!(email && password)}>Login
+                        </button>
+                    </NavLink>
+                </div>
+    <div>
+        <button onClick={MainPage}> Sign up</button>
+    </div>
+    </form>
         </div>
-    )
+)
 }
