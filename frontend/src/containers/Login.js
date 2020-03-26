@@ -1,48 +1,51 @@
 import React, {useState} from "react";
-import "./Login.css";
-import {NavLink} from "react-router-dom";
+import "./AuthForm.css";
+import {Link, NavLink} from "react-router-dom";
+import AuthForm from "./AuthForm";
+import {AddUser} from "../AddUser";
+import {succesfulAuth} from "./succesfulAuth";
+
 
 export default function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const checkStatus = () => {
-
-        return console.log("its ok!")
-    };
-
-    const handleSubmit = (event) => {
-        return event.preventDefault();
+    const kek = (e) => {
+        e.preventDefault();
+        succesfulAuth(email, password)
     };
 
     return (
-        <div className="login-page">
-            <div className="login-form">
-                <form onSubmit={handleSubmit}>
-                    <input placeholder="email"
-                           autoFocus
-                           type="text"
-                           onChange={e => setEmail(e.target.value)}>
-                    </input>
-                    <input placeholder="password"
-                           type="password"
-                           onChange={e => setPassword(e.target.value)}>
-                    </input>
-                    <div>
-                        <NavLink to="/mainPage">
-                            <button
-                                type="submit" onClick={checkStatus} disabled={!(email && password)}>LOGIN
-                            </button>
-                        </NavLink>
-                    </div>
-                    <div>
-                        <NavLink to="/signUp">
-                            <button>Sign up</button>
-                        </NavLink>
-                    </div>
-                </form>
-            </div>
-        </div>
-    )
+        <AuthForm title="Login">
+            <>
+                <input
+                    placeholder="email"
+                    autoFocus
+                    type="text"
+                    onChange={(e) => setEmail(e.target.value)}
+                >
+                </input>
+                <input
+                    placeholder="password"
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                >
+                </input>
+                <div>
+
+                    <button
+                        onClick={kek}
+                    >
+                        LOGIN
+                    </button>
+                </div>
+                <div>
+                    <NavLink to="/signUp">
+                        <button>Sign up</button>
+                    </NavLink>
+                </div>
+            </>
+        </AuthForm>
+    );
 }

@@ -7,6 +7,7 @@ export default function MainPage() {
         <div className="mainpage">
             <div><h3>MainPage</h3></div>
             <div><NavLink to="/login">Log out</NavLink></div>
+
         </div>
     )
 }
