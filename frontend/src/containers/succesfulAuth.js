@@ -1,5 +1,4 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
 
 export const succesfulAuth = (email, password) => {
 
@@ -12,6 +11,5 @@ export const succesfulAuth = (email, password) => {
 
         }
     }
-        return alert("Error! User not found");
-
+    return alert("Error! User not found");
 };

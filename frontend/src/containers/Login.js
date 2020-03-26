@@ -11,7 +11,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const kek = (e) => {
+    const authentication = (e) => {
         e.preventDefault();
         succesfulAuth(email, password)
     };
@@ -35,7 +35,7 @@ export default function Login() {
                 <div>
 
                     <button
-                        onClick={kek}
+                        onClick={authentication}
                     >
                         LOGIN
                     </button>
