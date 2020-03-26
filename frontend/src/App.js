@@ -10,10 +10,11 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <Redirect from="/" to="/login"/>
+                <Route exact path="/" render={() => <Redirect to="/login"/> }/>
                 <Route path="/login" render={() => <Login/>}/>
                 <Route path="/mainPage" render={() => <MainPage/>}/>
                 <Route path="/signUp" render={() => <SignUp/>}/>
+
             </div>
         </BrowserRouter>
     );
