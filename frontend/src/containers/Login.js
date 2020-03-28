@@ -1,19 +1,18 @@
 import React, {useState} from "react";
 import "./AuthForm.css";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import AuthForm from "./AuthForm";
-import {AddUser} from "../AddUser";
-import {succesfulAuth} from "./succesfulAuth";
-
+import {userAuthentication} from "./UserAuthentication";
+import {isUserExist} from "./IsUserExist";
 
 export default function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const authentication = (e) => {
-        e.preventDefault();
-        succesfulAuth(email, password)
+    const Login = () => {
+        if (isUserExist(email, password)) return userAuthentication(email, password);
+        return alert("Wrong password, or this user doesn't exist")
     };
 
     return (
@@ -35,7 +34,7 @@ export default function Login() {
                 <div>
 
                     <button
-                        onClick={authentication}
+                        onClick={Login}
                     >
                         LOGIN
                     </button>
